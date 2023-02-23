@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:43:54 by plau              #+#    #+#             */
-/*   Updated: 2023/02/23 18:59:24 by plau             ###   ########.fr       */
+/*   Updated: 2023/02/23 19:03:17 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ char	*capitalize(char *str)
 
 int main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
 	int i;
 
 	i = 1;
