@@ -6,13 +6,16 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:49:03 by plau              #+#    #+#             */
-/*   Updated: 2023/02/24 13:52:56 by plau             ###   ########.fr       */
+/*   Updated: 2023/02/24 18:52:04 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
+/* Start of the main function */
 int main(void)
 {
+	
 	std::cout << "Hello World" << std::endl;
+	return (0);
 }
