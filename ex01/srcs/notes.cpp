@@ -1,3 +1,7 @@
+
+/* learncpp.com */
+/* cplusplus.com */
+
 #include <iostream>
 #include <string>
 
@@ -18,7 +22,6 @@ int main(void)
 	AObject.coolSaying();
 	return (0);
 }
-
 
 /* 2. Getters and setters */
 class BClass

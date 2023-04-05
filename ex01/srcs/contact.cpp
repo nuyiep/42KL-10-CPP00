@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:38:00 by plau              #+#    #+#             */
-/*   Updated: 2023/02/24 18:50:37 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/05 21:53:37 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ Contact::~Contact(void)
 
 /* Set contact details */
 void	Contact::setContact(std::string firstname, std::string lastname, 
-							std::string nickname, std::string phone_number, 
-							std::string darkest_secret)
+							std::string nickname, std::string phoneNumber, 
+							std::string darkestSecret)
 {
 	this->_firstname = firstname;
 	this->_lastname = lastname;
 	this->_nickname = nickname;
-	this->_phone_number = phone_number;
-	this->_darkest_secret = darkest_secret;
+	this->_phoneNumber = phoneNumber;
+	this->_darkestSecret = darkestSecret;
+}
+
+/* Print out the Class variables */
+void	Contact::printContact(void)
+{
+	std::cout << "First name: 		" << this->_firstname << std::endl;
+	std::cout << "Last name: 		" << this->_lastname << std::endl;
+	std::cout << "Nickname: 		" << this->_nickname << std::endl;
+	std::cout << "Phone number: 		" << this->_phoneNumber << std::endl;
+	std::cout << "Darkest Secret: 	" << this->_darkestSecret << std::endl;
 }
 
 /* Get first name */
@@ -55,9 +65,7 @@ std::string	Contact::getNickName(void)
 /* Returns 1 if the class is empty, else returns 0 */
 int	Contact::check_empty(void)
 {
-	if (this->_firstname.empty() == 1 || this->_lastname.empty() == 1
-		|| this->_nickname.empty() == 1 || this->_phone_number.empty() == 1
-		|| this->_darkest_secret.empty() == 1)
+	if (this->_firstname.empty())
 		return (1);
 	else
 		return (0);
