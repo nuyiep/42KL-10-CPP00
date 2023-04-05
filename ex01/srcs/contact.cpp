@@ -6,21 +6,34 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:38:00 by plau              #+#    #+#             */
-/*   Updated: 2023/04/05 21:53:37 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/05 23:19:57 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 
+/******************************************************************************/
+/*						CONSTRUCTORS & DESTRUCTORS							  */
+/******************************************************************************/
+
 /* Constructor */
+/* Gets called when an object of the class is created */
+/* Purpose: Initialize the object's data members to some default values */
+/* In this case- empty- means that the constructor does not initialize any data */
 Contact::Contact(void)
 {
 }
 
 /* Destructor */
+/* Gets called when an object of the class is destroyed */
+/* Purpose: Clean up any resources that were allocated by the object during its lifetime */
 Contact::~Contact(void)
 {	
 }
+
+/******************************************************************************/
+/*								SETTERS										  */
+/******************************************************************************/
 
 /* Set contact details */
 void	Contact::setContact(std::string firstname, std::string lastname, 
@@ -34,6 +47,31 @@ void	Contact::setContact(std::string firstname, std::string lastname,
 	this->_darkestSecret = darkestSecret;
 }
 
+/******************************************************************************/
+/*								GETTERS										  */
+/******************************************************************************/
+/* Get first name - returns the firstname private variable */
+std::string	Contact::getFirstName(void)
+{
+	return (this->_firstname);
+}
+
+/* Get last name - returns the lastname private variable */
+std::string	Contact::getLastName(void)
+{
+	return (this->_lastname);
+}
+
+/* Get nick name - returns the nickname private variable */
+std::string	Contact::getNickName(void)
+{
+	return (this->_nickname);
+}
+
+/******************************************************************************/
+/*							PUBLIC FUNCTIONS								  */
+/******************************************************************************/
+
 /* Print out the Class variables */
 void	Contact::printContact(void)
 {
@@ -42,24 +80,6 @@ void	Contact::printContact(void)
 	std::cout << "Nickname: 		" << this->_nickname << std::endl;
 	std::cout << "Phone number: 		" << this->_phoneNumber << std::endl;
 	std::cout << "Darkest Secret: 	" << this->_darkestSecret << std::endl;
-}
-
-/* Get first name */
-std::string	Contact::getFirstName(void)
-{
-	return (this->_firstname);
-}
-
-/* Get last name */
-std::string	Contact::getLastName(void)
-{
-	return (this->_lastname);
-}
-
-/* Get nick name */
-std::string	Contact::getNickName(void)
-{
-	return (this->_nickname);
 }
 
 /* Returns 1 if the class is empty, else returns 0 */
