@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:37:55 by plau              #+#    #+#             */
-/*   Updated: 2023/04/05 23:25:10 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/07 15:08:14 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	get_data(std::string &data)
 }
 
 /* Print the contact */
-static void	printContact(Contact contacts[MAX_CONTACTS])
+static void	displayTable(Contact contacts[MAX_CONTACTS])
 {
 	std::cout << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
@@ -79,17 +79,54 @@ void	Phonebook::addContact(void)
 	std::string phone_number;
 	std::string darkest_secret;
 
-	std::cout << "Enter first name: ";
-	get_data(firstname);
-	std::cout << "Enter last name: ";
-	get_data(lastname);
-	std::cout << "Enter nickname: ";
-	get_data(nickname);
-	std::cout << "Enter phone number: ";
-	get_data(phone_number);
-	std::cout << "Enter darkest secret: ";
-	get_data(darkest_secret);
-	_contacts[_contact_index].setContact(firstname, 
+	while (1)
+	{
+		std::cout << "Enter first name: ";
+		get_data(firstname);
+		if (isalpha(firstname[0]) == false)
+			continue ;
+		if (firstname.empty() == false)
+			break ;
+	}
+	
+	while (1)
+	{
+		std::cout << "Enter last name: ";
+		get_data(lastname);
+		if (isalpha(lastname[0]) == false)
+			continue ;
+		if (lastname.empty() == false)
+			break ;
+	}
+	
+	while (1)
+	{
+		std::cout << "Enter nickname: ";
+		get_data(nickname);
+		if (isalpha(nickname[0]) == false)
+			continue ;
+		if (nickname.empty() == false)
+			break ;
+	}
+	
+	while (1)
+	{
+		std::cout << "Enter phone number: ";
+		get_data(phone_number);
+		if (isdigit(phone_number[0]) == false)
+			continue ;
+		if (phone_number.empty() == false)
+			break ;
+	}
+
+	while (1)
+	{
+		std::cout << "Enter darkest secret: ";
+		get_data(darkest_secret);
+		if (darkest_secret.empty() == false)
+			break ;
+	}
+	_contacts[_contact_index].saveContact(firstname, 
 		lastname, nickname, phone_number, darkest_secret);
 	_contact_index = (_contact_index + 1) % MAX_CONTACTS;
 }
@@ -101,24 +138,24 @@ void	Phonebook::searchContact(void)
 
 	if (_contact_index == 0)
 	{
-		std::cout << "No contacts to display" << std::endl;
+		std::cout << "No contacts in record. Please ADD a contact first" << std::endl;
 		return ;
 	}
-	printContact(_contacts);
+	displayTable(_contacts);
 	while (1)
 	{
 		std::cout << "Enter search index (0-7): ";
 		get_data(index);
 		if (index.length() == 1 && index[0] >= '0' && index[0] <= '7')
 		{
-			if (_contacts[index[0] - '0'].check_empty() == 1)
+			if (_contacts[index[0] - '0'].getFirstName().empty() == true)
 			{
 				std::cout << "Invalid index" << std::endl;
 				continue ;
 			}
 			else
 			{
-				_contacts[index[0] - '0'].printContact();
+				_contacts[index[0] - '0'].printDetails();
 				break ;
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:49:03 by plau              #+#    #+#             */
-/*   Updated: 2023/04/05 22:35:18 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/06 14:05:49 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 /* eof - to handle clt-d */
 int main(void)
 {
-	std::string	command;
+	std::string	userInput;
 	Phonebook	phonebook;
 
 	while (1)
 	{
 		std::cout << "Enter a command (ADD/SEARCH/EXIT): ";
-		if (std::getline(std::cin, command).eof())
+		if (std::getline(std::cin, userInput).eof())
 		{
 			std::cout << std::endl;
 			break ;
 		}
-		if (command == "ADD")
+		if (userInput == "ADD")
 			phonebook.addContact();
-		else if (command == "SEARCH")
+		else if (userInput == "SEARCH")
 			phonebook.searchContact();
-		else if (command == "EXIT")
+		else if (userInput == "EXIT")
 			break ;
 	}
 	return (0);

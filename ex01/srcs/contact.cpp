@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:38:00 by plau              #+#    #+#             */
-/*   Updated: 2023/04/05 23:19:57 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/07 14:40:43 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Contact::Contact(void)
 /* Gets called when an object of the class is destroyed */
 /* Purpose: Clean up any resources that were allocated by the object during its lifetime */
 Contact::~Contact(void)
-{	
+{
 }
 
 /******************************************************************************/
@@ -36,7 +36,7 @@ Contact::~Contact(void)
 /******************************************************************************/
 
 /* Set contact details */
-void	Contact::setContact(std::string firstname, std::string lastname, 
+void	Contact::saveContact(std::string firstname, std::string lastname, 
 							std::string nickname, std::string phoneNumber, 
 							std::string darkestSecret)
 {
@@ -73,20 +73,11 @@ std::string	Contact::getNickName(void)
 /******************************************************************************/
 
 /* Print out the Class variables */
-void	Contact::printContact(void)
+void	Contact::printDetails(void)
 {
 	std::cout << "First name: 		" << this->_firstname << std::endl;
 	std::cout << "Last name: 		" << this->_lastname << std::endl;
 	std::cout << "Nickname: 		" << this->_nickname << std::endl;
 	std::cout << "Phone number: 		" << this->_phoneNumber << std::endl;
 	std::cout << "Darkest Secret: 	" << this->_darkestSecret << std::endl;
-}
-
-/* Returns 1 if the class is empty, else returns 0 */
-int	Contact::check_empty(void)
-{
-	if (this->_firstname.empty())
-		return (1);
-	else
-		return (0);
 }
