@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:37:55 by plau              #+#    #+#             */
-/*   Updated: 2023/04/07 15:08:14 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/08 16:41:27 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ void	Phonebook::addContact(void)
 		std::cout << "Enter first name: ";
 		get_data(firstname);
 		if (isalpha(firstname[0]) == false)
+		{
+			std::cout << "Need to start with an alphabet" << std::endl;
 			continue ;
+		}
 		if (firstname.empty() == false)
 			break ;
 	}
@@ -94,7 +97,10 @@ void	Phonebook::addContact(void)
 		std::cout << "Enter last name: ";
 		get_data(lastname);
 		if (isalpha(lastname[0]) == false)
+		{
+			std::cout << "Need to start with an alphabet" << std::endl;
 			continue ;
+		}
 		if (lastname.empty() == false)
 			break ;
 	}
@@ -104,7 +110,10 @@ void	Phonebook::addContact(void)
 		std::cout << "Enter nickname: ";
 		get_data(nickname);
 		if (isalpha(nickname[0]) == false)
+		{
+			std::cout << "Need to start with an alphabet" << std::endl;
 			continue ;
+		}
 		if (nickname.empty() == false)
 			break ;
 	}
@@ -114,7 +123,10 @@ void	Phonebook::addContact(void)
 		std::cout << "Enter phone number: ";
 		get_data(phone_number);
 		if (isdigit(phone_number[0]) == false)
+		{
+			std::cout << "Need to start with a digit" << std::endl;
 			continue ;
+		}
 		if (phone_number.empty() == false)
 			break ;
 	}
@@ -123,8 +135,13 @@ void	Phonebook::addContact(void)
 	{
 		std::cout << "Enter darkest secret: ";
 		get_data(darkest_secret);
-		if (darkest_secret.empty() == false)
-			break ;
+		if (darkest_secret.empty() == false) // if is not empty 
+		{
+			if (darkest_secret[0] == 32)
+				std::cout << "Can't start with a space" << std::endl;
+			else
+				break ;
+		}
 	}
 	_contacts[_contact_index].saveContact(firstname, 
 		lastname, nickname, phone_number, darkest_secret);

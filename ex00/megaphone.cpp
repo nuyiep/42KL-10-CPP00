@@ -6,25 +6,22 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:43:54 by plau              #+#    #+#             */
-/*   Updated: 2023/02/23 19:03:17 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/08 16:26:54 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include <iostream> //std::endl
+#include <string>
+#include <algorithm>
 
-char	*capitalize(char *str)
+void	capitalize(std::string &str)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] > 96 && str[i] < 123)
-			str[i] = str[i] - 32;
-		i++;
-	}
-	std::cout << "" << str[i];
-	return (str);
+	for (unsigned int i = 0; i < str.size(); i++)
+		str[i] = std::toupper(str[i]);
+	return ;
 }
 
 int main(int ac, char **av)
@@ -39,14 +36,36 @@ int main(int ac, char **av)
 	}
 	while (i < ac)
 	{
-		av[i] = capitalize(av[i]);
-		
-		std::cout << "" << av[i];
+		std::string str = av[i];
+		capitalize(str);
+		std::cout << str;
 		i++;
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 	return (0);
 }
+
+/* Or */
+// int main(int ac, char **av)
+// {
+// 	int i;
+
+// 	i = 1;
+// 	if (ac == 1)
+// 	{
+// 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE*" << std::endl;
+// 		return (0);
+// 	}
+// 	while (i < ac)
+// 	{
+// 		std::string s(av[i]);
+// 		transform(s.begin(), s.end(), s.begin(), ::toupper);
+// 		std::cout << s;
+// 		i++;
+// 	}
+// 	std::cout << std::endl;
+// 	return (0);
+// }
 
 /**
 	std::cout << "Hello, World!" << std::endl;

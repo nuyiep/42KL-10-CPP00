@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:22:01 by plau              #+#    #+#             */
-/*   Updated: 2023/04/07 19:58:45 by plau             ###   ########.fr       */
+/*   Updated: 2023/04/08 15:28:05 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,25 @@ int	Account::_totalNbWithdrawals = 0;
 /*								GETTERS										  */
 /******************************************************************************/
 
-/* Getters functions */
+/* Returns the number of accounts */
 int Account::getNbAccounts(void)
 {
 	return (_nbAccounts);
 }
 
+/* Returns the total amount in all accounts */
 int	Account::getTotalAmount(void)
 {
 	return (_totalAmount);
 }
 
+/* Returns the total number of deposits */
 int	Account::getNbDeposits(void)
 {
 	return (_totalNbDeposits);
 }
 
+/* Returns the total number of withdrawals */
 int Account::getNbWithdrawals(void)
 {
 	return (_totalNbWithdrawals);
@@ -51,16 +54,7 @@ int Account::getNbWithdrawals(void)
 /*								SETTERS										  */
 /******************************************************************************/
 
-/* Setters functions */
-void	Account::displayAccountsInfos(void)
-{
-	_displayTimestamp();
-	std::cout << " accounts:" << getNbAccounts()
-		<< ";total:" << getTotalAmount()
-		<< ";deposits:" << getNbDeposits()
-		<< ";withdrawals:" << getNbWithdrawals()
-		<< std::endl;
-}
+/* No setters functions */
 
 /******************************************************************************/
 /*						CONSTRUCTORS & DESTRUCTORS							  */
@@ -150,6 +144,16 @@ void	Account::displayStatus(void) const
 		<< ";amount:" << _amount
 		<< ";deposits:" << _nbDeposits
 		<< ";withdrawals:" << _nbWithdrawals
+		<< std::endl;
+}
+
+void	Account::displayAccountsInfos(void)
+{
+	_displayTimestamp();
+	std::cout << " accounts:" << getNbAccounts()
+		<< ";total:" << getTotalAmount()
+		<< ";deposits:" << getNbDeposits()
+		<< ";withdrawals:" << getNbWithdrawals()
 		<< std::endl;
 }
 
